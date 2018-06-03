@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Http, Headers, RequestOptions} from '@angular/http';
-
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +17,11 @@ export class OtpService {
     return this.http.get(this.SEND_OTP_ENDPOINT+'?authkey='+this.AUTH_KEY+'&sender='+this.SENDER+'&                               message='+this.GET_OTP_MESSAGE+'&mobile='+phone)
 
   }
+
+  checkotp(phonenum, otppin){
+    console.log("service")
+    return this.http.get(this.VERIFY_OTP_ENDPOINT+'?authkey='+this.AUTH_KEY+'&mobile='+phonenum+'&otp='+otppin)
+  }
+
+
 }

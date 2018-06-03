@@ -17,17 +17,17 @@
                 <div class="sendotp">                    
                 <div class="form-group col-sm-8">
                    <span style="color:red;"></span>   
-                   <input type="text" class="form-control" name="phone" placeholder="Enter your 10 digit phone number XXXXXXXXX" required="" [(ngModel)]="phone">
+                   <input type="text" class="form-control" name="phone" placeholder="Enter your 10 digit phone number XXXXXXXXX" required="" #phone>
                 </div>
-                <button class="btn btn-primary  pull-right col-sm-3" (click)="addPhone(phone)">Get OTP</button>
+                <button class="btn btn-primary  pull-right col-sm-3" (click)="addPhone(phone.value)">Get OTP</button>
                 </div>
 
                 <div class="verifyotp">                    
                     <div class="form-group col-sm-8">
                        <span style="color:red;"></span>   
-                       <input type="text" class="form-control" name="otp" placeholder="Verify 4 digit OTP XXXX" required="" [(ngModel)]="otp">
+                       <input type="text" class="form-control" name="otp" placeholder="Verify 4 digit OTP XXXX" #otp>
                     </div>
-                    <button class="btn btn-primary  pull-right col-sm-3" (click)="verify(otp)">Verify</button>
+                    <button class="btn btn-primary  pull-right col-sm-3" (click)="verify(otp.value)">Verify</button>
                     </div>
               </div>
         <br><br>
