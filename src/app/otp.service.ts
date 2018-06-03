@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class OtpService {
   }
 
   checkotp(phonenum, otppin){
-    console.log("service")
+    console.log("service",phonenum,otppin);
     return this.http.get(this.VERIFY_OTP_ENDPOINT+'?authkey='+this.AUTH_KEY+'&mobile='+phonenum+'&otp='+otppin)
   }
 

@@ -1,10 +1,18 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container be-detail-container">
+
+    
     <div class="row">
+        <div class="notify" *ngIf="msg">
+                <div class="alert alert-{{msg}}" role="alert">{{msg_text}}</div>
+            </div>
         <div class="col-sm-6 col-sm-offset-3">
             <br>
             <img src="https://cdn2.iconfinder.com/data/icons/luchesa-part-3/128/SMS-512.png" class="img-responsive" style="width:200px; height:200px;margin:0 auto;"><br>
@@ -31,6 +39,13 @@
                     </div>
               </div>
         <br><br>
+        
         </div>
     </div>        
 </div>
+
+<script>
+    function showAlert(){
+    swal("Good job!", "You clicked the button!", "error");
+  }
+</script>

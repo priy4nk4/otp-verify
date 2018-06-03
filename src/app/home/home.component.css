@@ -1,1 +1,11 @@
 .be-detail-header { border-bottom: 1px solid #edeff2; margin-bottom: 50px; }
+.alert-error{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    text-align: center;
+}
+
+.alert-success{
+    text-align: center;
+}

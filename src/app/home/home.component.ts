@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { OtpService } from '../otp.service'
+import { OtpService } from '../otp.service';
 
 
 @Component({
@@ -11,16 +11,29 @@ import { OtpService } from '../otp.service'
 export class HomeComponent implements OnInit {
   @ViewChild('phone') phone;
   @ViewChild('otp') otppin;
+  msg: any;
+  msg_text: any;
+  
+
   constructor(private otp: OtpService) { }
 
   ngOnInit() {
-
+    
   }
 
   addPhone(phone): void{
     this.otp.getOTP(phone).subscribe(
       data=>{
         console.log(data)
+        if(data.type=="error"){
+          this.msg = "error";
+          this.msg_text = data.message
+          
+        }
+        else{
+          this.msg="success";
+          this.msg_text = "OTP sent to your phone."
+        }
         localStorage.setItem("phone", phone)
       })
   }
@@ -30,8 +43,19 @@ export class HomeComponent implements OnInit {
     console.log(phonenum, otppin)
     this.otp.checkotp(phonenum, otppin).subscribe(
       data => {
-        console.log(data)
+        if(data.type=="error"){
+          this.msg = "error";
+          this.msg_text = data.message
+        }
+        else{
+          this.msg="success";
+          this.msg_text = "OTP Verified!"
+        }
+        console.log(this.msg);
       })
   }
+
+  
+  
 
 }
