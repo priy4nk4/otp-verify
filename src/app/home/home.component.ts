@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { OtpService } from '../otp.service'
+
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild('phone') phone;
+  constructor(private otp: OtpService) { }
 
   ngOnInit() {
+
+  }
+
+  addPhone(phone): void{
+    this.otp.getOTP(this.phone).subscribe(
+      data=>{
+        console.log(data)
+      })
   }
 
 }
